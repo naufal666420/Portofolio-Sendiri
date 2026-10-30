@@ -1,0 +1,566 @@
+/* =========================================================
+   NAUFAL PORTFOLIO - CSS STYLE
+   ========================================================= */
+
+/* --- 1. VARIABEL TEMA (DARK & LIGHT) --- */
+:root {
+  /* Default: Light Mode */
+  --bg-color: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary-color: #3b82f6;
+  --secondary-color: #8b5cf6;
+  --accent-color: #0ea5e9;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(248, 250, 252, 0.8);
+  --nav-height: 70px;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode */
+  --bg-color: #090b13;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary-color: #60a5fa;
+  --secondary-color: #a78bfa;
+  --accent-color: #38bdf8;
+  --glass-bg: rgba(9, 11, 19, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(30, 41, 59, 0.4);
+}
+
+/* --- 2. RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, .brand {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- 3. EFEK GLOW BACKGROUND --- */
+.page-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  opacity: 0.4;
+}
+.glow-one {
+  top: -10%; left: -10%;
+  width: 40vw; height: 40vw;
+  background: radial-gradient(circle, var(--primary-color), transparent);
+}
+.glow-two {
+  bottom: -10%; right: -10%;
+  width: 30vw; height: 30vw;
+  background: radial-gradient(circle, var(--secondary-color), transparent);
+}
+
+/* --- 4. TYPOGRAPHY & UTILITIES --- */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text; /* Tambahkan baris standar ini */
+  color: transparent;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section-heading {
+  margin-bottom: 40px;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.section-heading h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: var(--text-muted);
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 5. BUTTONS --- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1rem;
+}
+
+.button-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.button-outline {
+  background: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--text-main);
+}
+
+.button-outline:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+.icon-button:hover {
+  color: var(--primary-color);
+}
+
+/* --- 6. HEADER & NAVIGATION --- */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.brand-mark {
+  background: var(--primary-color);
+  color: #fff;
+  width: 30px; height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+.brand-dot { color: var(--primary-color); }
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* --- 7. HERO SECTION --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--nav-height);
+  gap: 40px;
+}
+
+.hero-copy {
+  flex: 1;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.status-dot {
+  width: 10px; height: 10px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.hero-kicker {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.hero-role {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+  color: var(--primary-color);
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  margin-bottom: 40px;
+}
+
+.hero-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-muted);
+}
+.hero-socials a {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.hero-socials a:hover {
+  color: var(--primary-color);
+}
+
+/* Hero Visual (Profile Card) */
+.hero-visual {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  width: 280px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.profile-image-wrap {
+  width: 150px; height: 150px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-image-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.profile-placeholder {
+  display: none; /* Shown by JS onerror */
+  flex-direction: column;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.profile-placeholder i { font-size: 2rem; margin-bottom: 5px;}
+
+.profile-card-info strong { display: block; font-size: 1.2rem; }
+.profile-card-info span { color: var(--text-muted); font-size: 0.9rem; }
+
+.floating-tag {
+  position: absolute;
+  background: var(--glass-bg);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex; align-items: center; gap: 5px;
+}
+.tag-code { top: 20px; left: -40px; animation: float 4s ease-in-out infinite; }
+.tag-creative { bottom: 40px; right: -50px; animation: float 5s ease-in-out infinite reverse; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* --- 8. ABOUT SECTION --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+}
+.about-note h3 { font-size: 1.8rem; margin: 15px 0; }
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.detail-item {
+  display: flex; gap: 15px; align-items: flex-start;
+  background: var(--card-bg); padding: 20px;
+  border-radius: 12px; border: 1px solid var(--glass-border);
+}
+.detail-icon {
+  font-size: 1.5rem; color: var(--primary-color);
+}
+.detail-item small { display: block; color: var(--text-muted); }
+.detail-item strong { display: block; margin-top: 5px; }
+
+/* --- 9. SKILLS SECTION --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  text-align: center;
+}
+.skill-icon {
+  font-size: 2.5rem; margin-bottom: 15px; color: var(--primary-color);
+}
+.skill-card h3 { margin-bottom: 10px; }
+.skill-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
+.skill-level {
+  font-size: 0.75rem; font-weight: 700;
+  background: rgba(148, 163, 184, 0.1);
+  padding: 4px 10px; border-radius: 10px;
+}
+
+/* --- 10. PROJECTS SECTION --- */
+.project-filters {
+  display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;
+}
+.filter-button {
+  background: transparent; border: 1px solid var(--glass-border);
+  color: var(--text-main); padding: 8px 20px;
+  border-radius: 20px; cursor: pointer; transition: all 0.3s;
+}
+.filter-button.active, .filter-button:hover {
+  background: var(--primary-color); color: #fff; border-color: var(--primary-color);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.project-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.project-card.is-hidden { display: none; }
+.project-preview {
+  height: 200px; background: #1e293b;
+  position: relative; display: flex; justify-content: center; align-items: center;
+}
+.project-content { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+.project-meta {
+  display: flex; justify-content: space-between;
+  font-size: 0.8rem; color: var(--primary-color); font-weight: 700; margin-bottom: 10px;
+}
+.project-content h3 { margin-bottom: 10px; }
+.project-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex: 1; }
+.tag-list {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.tag-list span {
+  font-size: 0.75rem; padding: 4px 10px; background: rgba(148, 163, 184, 0.1); border-radius: 4px;
+}
+.text-link { color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
+
+/* CSS Art Placeholders untuk Proyek */
+.mock-browser, .dashboard-mini, .ui-phone { opacity: 0.5; }
+.preview-number { position: absolute; top: 15px; right: 15px; font-weight: bold; color: rgba(255,255,255,0.2); font-size: 1.5rem; }
+
+/* --- 11. EDUCATION (TIMELINE) --- */
+.timeline { border-left: 2px solid var(--glass-border); padding-left: 30px; margin-left: 15px; }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot {
+  position: absolute; left: -39px; top: 0;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--primary-color); border: 4px solid var(--bg-color);
+}
+.timeline-date { font-size: 0.85rem; font-weight: 700; color: var(--primary-color); margin-bottom: 10px; }
+.timeline-place { font-weight: 600; margin-bottom: 10px; color: var(--text-main); }
+
+/* --- 12. CONTACT SECTION --- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; }
+.contact-method {
+  display: flex; align-items: center; gap: 15px;
+  padding: 15px 0; border-bottom: 1px solid var(--glass-border);
+  transition: transform 0.3s;
+}
+.contact-method:hover { transform: translateX(10px); color: var(--primary-color); }
+.contact-method span { font-size: 1.5rem; color: var(--primary-color); }
+.contact-method div { flex: 1; }
+.contact-method small { display: block; color: var(--text-muted); }
+
+.contact-form .form-row { margin-bottom: 20px; }
+.contact-form label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 12px 15px;
+  border-radius: 8px; border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.05); color: var(--text-main);
+  font-family: inherit; font-size: 1rem;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none; border-color: var(--primary-color);
+}
+.submit-button { width: 100%; justify-content: center; margin-top: 10px; }
+.form-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; text-align: center; }
+
+/* --- 13. FOOTER & BACK TO TOP --- */
+.site-footer { border-top: 1px solid var(--glass-border); padding: 30px 0; margin-top: 50px; text-align: center; }
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 15px; color: var(--text-muted); font-size: 0.9rem; }
+
+.back-to-top {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 45px; height: 45px; border-radius: 50%;
+  background: var(--primary-color); color: #fff;
+  border: none; cursor: pointer; font-size: 1.2rem;
+  opacity: 0; visibility: hidden; transition: all 0.3s;
+  z-index: 99; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); background: var(--secondary-color); }
+
+/* --- 14. ANIMASI REVEAL (SCROLL) --- */
+.reveal {
+  opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* --- 15. RESPONSIVE DESIGN (HP & TABLET) --- */
+@media (max-width: 992px) {
+  .hero { flex-direction: column; text-align: center; padding-top: calc(var(--nav-height) + 50px); }
+  .hero-socials { justify-content: center; }
+  .hero-description { margin: 0 auto 30px; }
+  .floating-tag { display: none; } /* Sembunyikan tag di HP agar rapi */
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.8rem; }
+  .hero-role { font-size: 1.2rem; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: absolute; top: var(--nav-height); left: 0; right: 0;
+    background: var(--glass-bg); backdrop-filter: blur(15px);
+    flex-direction: column; gap: 0; border-bottom: 1px solid var(--glass-border);
+    max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+  }
+  .nav-links.open { max-height: 400px; padding: 10px 0; }
+  .nav-link { padding: 15px 20px; display: block; border-bottom: 1px solid rgba(128,128,128,0.1); }
+  .nav-actions .nav-cta { display: none; } /* Sembunyikan tombol Hubungi di navbar HP */
+  .about-details { grid-template-columns: 1fr; }
+}
